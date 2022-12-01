@@ -10,6 +10,9 @@ app.get('/', (req, res, next)=>{
 	res.send('Hello world')
 })
 
+app.use("/api/contacts",require("./routes/contactRoutes"));
+app.use("/api/users",require("./routes/userRoutes"));
+
 app.listen(port, ()=>{
 	console.log(`Server running on port ${port}`);
 })
