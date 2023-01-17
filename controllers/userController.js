@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const bcrypt = require('bcrypt');
 const asyncHandler = require('express-async-handler');
 
 //@desc Register a user
