@@ -25,46 +25,15 @@ const registerUser = asyncHandler(async(req, res) => {
 });
 
 //@desc Register a user
-//@route POST /api/users/register
+//@route POST /api/users/login
 //@access public
 const loginUser = asyncHandler(async(req, res) => {
-	const {username, email, password} = req.body;
-	if(!username||!email||!password){
-		res.status(400);
-		throw new Error("All fields are mandatory!");
-	}
-	const userAvailable = await User.findOne({email});
-	if(userAvailable){
-		res.Status(400);
-		throw new Error("User already registered");
-	}
-	const hashedPassword = await bcrypt.hash(password, 10);
-	const user = await User.create({
-		username, email, password:hashedPassword
-	})
-	return res.json({user:user});
 });
 
 //@desc Register a user
-//@route POST /api/users/register
-//@access public
+//@route GET /api/users/current
+//@access private
 const currentUser = asyncHandler(async(req, res) => {
-	const {username, email, password} = req.body;
-	if(!username||!email||!password){
-		res.status(400);
-		throw new Error("All fields are mandatory!");
-	}
-	const userAvailable = await User.findOne({email});
-	if(userAvailable){
-		res.Status(400);
-		throw new Error("User already registered");
-	}
-	const hashedPassword = await bcrypt.hash(password, 10);
-	const user = await User.create({
-		username, email, password:hashedPassword
-	})
-
-	return res.json({user:user});
 });
 
 module.exports = {registerUser, loginUser, currentUser};
