@@ -1,4 +1,3 @@
-var db = require('../config/dbConnection.js');
 const mongoose = require("mongoose");
 
 const Contact = new mongoose.Schema({
