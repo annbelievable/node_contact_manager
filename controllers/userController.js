@@ -58,6 +58,9 @@ const loginUser = asyncHandler(async(req, res) => {
 //@route GET /api/users/current
 //@access private
 const currentUser = asyncHandler(async(req, res) => {
+	console.log("request");
+	//console.log(req);
+	return res.json({user:req.user});
 });
 
 module.exports = {registerUser, loginUser, currentUser};
