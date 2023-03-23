@@ -1,11 +1,14 @@
 const Contact = require("../models/contactModel");
 const asyncHandler = require("express-async-handler");
+const mongoose = require("mongoose");
 
 //@desc Get all contacts
 //@route GET /api/contacts
 //@access private
 const getContacts = asyncHandler(async (req, res) => {
-  const { contacts } = await Contact.find({ user_id: req.user.id });
+  const { contacts } = await Contact.find({
+    User: new mongoose.Types.ObjectId(req.user.id),
+  });
   res.status(200).json(contacts);
 });
 
@@ -29,7 +32,7 @@ const createContact = asyncHandler(async (req, res) => {
   }
 
   const contact = await Contact.create({
-    User: req.user,
+    User: req.user.id,
     name,
     email,
     phone,

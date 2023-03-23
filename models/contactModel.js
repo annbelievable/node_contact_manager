@@ -4,7 +4,7 @@ const schema = new mongoose.Schema({
   name: { type: String, index: true, required: true },
   email: { type: String, index: true, required: true },
   phone: { type: String },
-  User: { type: mongoose.SchemaTypes.ObjectId, ref: "User", required: true },
+  User: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   timestamp: { type: Date, default: Date.now },
 });
 
