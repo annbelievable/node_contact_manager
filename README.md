@@ -1,17 +1,10 @@
+NOTES:
+Please create a .env file. Add the following variables PORT, CONNECTION_STRING and ACCESS_TOKEN_SECRET to ensure the project works well.
+
 START PROJECT:
-DEBUG=node_contact_manager:* npm start
+DEBUG=node_contact_manager:\* npm start
 
-TODO:
--users can register for their account
--user can login to their account and manage their contacts
--user can perform CRUD operations on contacts
--user can only perform CRUD operations on their own contacts
--user should have a valid access token to use the private endpoints
--proper error messages with status code
--user password is stored properly
--JWT tokens for users that login successfully
-
-ROUTES REQUIRED:
+ROUTES AVAILABLE:
 POST /api/users/register
 POST /api/users/login
 GET /api/users/current
